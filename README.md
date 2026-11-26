@@ -17,7 +17,7 @@ and snaps a photo of anyone who keeps poking at it.
 
 <br />
 
-<img src="docs/assets/preview.gif" width="820" alt="NoPeek lock screens: Peekaboo, photo warning, caught, Googly Eyes and The Bouncer" />
+<img src="docs/assets/lock-peekaboo.jpg" width="820" alt="NoPeek lock screen: Hey, why are you peeking?" />
 
 </div>
 
