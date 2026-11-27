@@ -120,19 +120,7 @@ Pick one, or let 🎲 **Shuffle** choose a different one each lock. Every theme 
 
 1. Grab `NoPeek-<version>.dmg` from the [latest release](https://github.com/AmeyaJain-25/nopeek/releases/latest).
 2. Open it and drag **NoPeek** onto **Applications**.
-3. Open NoPeek. The first launch is blocked (see below), so allow it once.
-
-> **"Apple could not verify NoPeek…"** NoPeek is free and open source, so it isn't signed with a paid
-> Apple Developer ID or notarized by Apple. macOS blocks the first launch of apps like that. To allow it, either:
->
-> - Open **System Settings → Privacy & Security**, scroll down, and click **Open Anyway** next to NoPeek
->   (on macOS 14 you can also right-click the app → **Open**), or
-> - run this once in Terminal:
->   ```bash
->   xattr -dr com.apple.quarantine /Applications/NoPeek.app
->   ```
->
-> You only need to do this once. If you'd rather not trust a downloaded binary, build it from source instead (below).
+3. Open NoPeek. macOS blocks the first launch because the app isn't notarized by Apple; the release notes explain how to allow it.
 
 ### Build from source
 
