@@ -24,6 +24,8 @@ echo "▸ Assembling bundle…"
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "$BIN" "$APP/Contents/MacOS/NoPeek"
+# Strip debug/local symbols: they embed absolute build paths (e.g. /Users/<you>/…/*.o).
+strip -S -x "$APP/Contents/MacOS/NoPeek"
 cp "$ROOT/Resources/Info.plist" "$APP/Contents/Info.plist"
 
 if [[ ! -f "$ROOT/build/AppIcon.icns" ]]; then

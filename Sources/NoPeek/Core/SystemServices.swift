@@ -53,7 +53,7 @@ final class CameraCapture: NSObject, AVCapturePhotoCaptureDelegate, @unchecked S
         await AVCaptureDevice.requestAccess(for: .video)
     }
 
-    private let queue = DispatchQueue(label: "com.ameyajain.nopeek.camera")
+    private let queue = DispatchQueue(label: "io.github.ameyajain-25.nopeek.camera")
     private var session: AVCaptureSession?
     private var continuation: CheckedContinuation<Data, Error>?
 

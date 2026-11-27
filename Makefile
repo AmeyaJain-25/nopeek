@@ -1,7 +1,7 @@
 APP_NAME := NoPeek
 INSTALL_DIR := $(HOME)/Applications
 
-.PHONY: build test install run clean icon
+.PHONY: build test install run clean icon dmg
 
 build:
 	@scripts/build-app.sh
@@ -20,6 +20,9 @@ install: build
 
 run: install
 	@open "$(INSTALL_DIR)/$(APP_NAME).app"
+
+dmg: build
+	@scripts/make-dmg.sh
 
 icon:
 	@rm -rf build/AppIcon.iconset build/AppIcon.icns

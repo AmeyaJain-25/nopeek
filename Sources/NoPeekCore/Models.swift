@@ -257,7 +257,7 @@ public struct AppSettings: Codable, Hashable, Sendable {
     public static let slackBundleID = "com.tinyspeck.slackmacgap"
 
     public var schemaVersion: Int
-    /// Shown to snoopers ("Reporting to Ameya…").
+    /// Shown to snoopers ("Reporting to <name>…"); empty falls back to "the owner".
     public var ownerName: String
     /// Default "lock after no input" (seconds, or `LockDelay.never`).
     public var defaultIdleLockSeconds: Int
@@ -278,7 +278,7 @@ public struct AppSettings: Codable, Hashable, Sendable {
     public var apps: [ProtectedApp]
 
     public init(
-        ownerName: String = "Ameya",
+        ownerName: String = "",
         defaultIdleLockSeconds: Int = 60,
         defaultSwitchAwayLockSeconds: Int = LockDelay.never,
         lockTrigger: LockTrigger = .perApp,

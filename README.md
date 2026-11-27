@@ -114,7 +114,29 @@ Pick one, or let 🎲 **Shuffle** choose a different one each lock. Every theme 
 
 ## Getting started
 
-**Requirements:** macOS 14 (Sonoma) or later, Apple Silicon, Xcode command-line tools (Swift 5.9+).
+**Requirements:** macOS 14 (Sonoma) or later, Apple Silicon (M1 or newer).
+
+### Download
+
+1. Grab `NoPeek-<version>.dmg` from the [latest release](https://github.com/AmeyaJain-25/nopeek/releases/latest).
+2. Open it and drag **NoPeek** onto **Applications**.
+3. Open NoPeek. The first launch is blocked (see below), so allow it once.
+
+> **"Apple could not verify NoPeek…"** NoPeek is free and open source, so it isn't signed with a paid
+> Apple Developer ID or notarized by Apple. macOS blocks the first launch of apps like that. To allow it, either:
+>
+> - Open **System Settings → Privacy & Security**, scroll down, and click **Open Anyway** next to NoPeek
+>   (on macOS 14 you can also right-click the app → **Open**), or
+> - run this once in Terminal:
+>   ```bash
+>   xattr -dr com.apple.quarantine /Applications/NoPeek.app
+>   ```
+>
+> You only need to do this once. If you'd rather not trust a downloaded binary, build it from source instead (below).
+
+### Build from source
+
+Needs Xcode command-line tools (Swift 5.9+).
 
 ```bash
 git clone https://github.com/AmeyaJain-25/nopeek.git
@@ -127,7 +149,7 @@ NoPeek lives in your menu bar (🙈). On first launch it opens Settings on the P
 ### First-run setup
 
 1. **Permissions:** grant Camera, Accessibility and Notifications (see [below](#permissions)).
-2. **General → Your name:** this is who snoopers are "reported" to. It defaults to *Ameya*, so change it.
+2. **General → Your name:** this is who snoopers are "reported" to. Until you set it, snoopers are reported to *the owner*.
 3. **Apps:** Slack is protected by default. Add more with **+** (or *Protect "…"* from the menu bar), then choose when each one locks.
 4. **Your way in:** record a secret hotkey, set a secret word, and/or keep the Touch ID button.
 5. **Try it:** `--preview` (below) shows the real lock screen in a window, so you can test your secrets safely.
@@ -153,6 +175,7 @@ NoPeek lives in your menu bar (🙈). On first launch it opens Settings on the P
 | `make build` | Build `build/NoPeek.app` |
 | `make install` | Build and copy to `~/Applications` |
 | `make run` | Install and launch |
+| `make dmg` | Build `build/NoPeek-<version>.dmg` for a release |
 
 Dev flags: `open ~/Applications/NoPeek.app --args --lock-all` (lock immediately) or `--preview` (show the lock screen in a window).
 
@@ -188,7 +211,7 @@ Sources/NoPeek/
   Settings/  settings window, shortcut recorder
   MenuBar/   menu-bar menu
 Tests/       NoPeekCoreTests, NoPeekTests
-scripts/     build, icon rendering, local signing identity
+scripts/     build, DMG packaging, icon rendering, local signing identity
 ```
 
 Data lives in `~/Library/Application Support/NoPeek/` (`settings.json`, `secrets.json`, `Captures/`).

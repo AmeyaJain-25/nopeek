@@ -423,7 +423,7 @@ final class LockEngine: ObservableObject {
         }
         do {
             let data = try await camera.capturePhoto()
-            guard let record = captureStore.add(imageData: data, date: Date(), bundleID: "com.ameyajain.nopeek.selftest",
+            guard let record = captureStore.add(imageData: data, date: Date(), bundleID: "io.github.ameyajain-25.nopeek.selftest",
                                                 appName: "NoPeek self-test", attempt: 0) else {
                 return "camera=\(status) captured=\(data.count)B saved=false"
             }

@@ -3,7 +3,7 @@ import Carbon.HIToolbox
 import NoPeekCore
 import os
 
-let log = Logger(subsystem: "com.ameyajain.nopeek", category: "app")
+let log = Logger(subsystem: "io.github.ameyajain-25.nopeek", category: "app")
 
 // MARK: - Paths
 

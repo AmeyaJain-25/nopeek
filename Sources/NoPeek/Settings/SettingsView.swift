@@ -73,7 +73,7 @@ private struct GeneralTab: View {
     var body: some View {
         Form {
             Section("You") {
-                TextField("Your name", text: $store.settings.ownerName, prompt: Text("Ameya"))
+                TextField("Your name", text: $store.settings.ownerName, prompt: Text("e.g. Alex"))
                 Text("Shown to snoopers: “Reporting to \(store.settings.ownerDisplayName)…”")
                     .font(.caption).foregroundStyle(.secondary)
             }
@@ -621,7 +621,7 @@ private struct PermissionsTab: View {
     private func resetAccessibility() {
         let task = Process()
         task.executableURL = URL(fileURLWithPath: "/usr/bin/tccutil")
-        task.arguments = ["reset", "Accessibility", Bundle.main.bundleIdentifier ?? "com.ameyajain.nopeek"]
+        task.arguments = ["reset", "Accessibility", Bundle.main.bundleIdentifier ?? "io.github.ameyajain-25.nopeek"]
         try? task.run()
         task.waitUntilExit()
         InputGuard.promptForTrust()
@@ -629,7 +629,7 @@ private struct PermissionsTab: View {
     }
 
     private func openNotificationSettings() {
-        let id = Bundle.main.bundleIdentifier ?? "com.ameyajain.nopeek"
+        let id = Bundle.main.bundleIdentifier ?? "io.github.ameyajain-25.nopeek"
         if let url = URL(string: "x-apple.systempreferences:com.apple.Notifications-Settings.extension?id=\(id)") {
             NSWorkspace.shared.open(url)
         }
